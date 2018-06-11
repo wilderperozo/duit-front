@@ -1,32 +1,35 @@
-
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from "./shared/shared.module";
+import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastModule, ToastOptions } from 'ng2-toastr/ng2-toastr';
 
 import { AppComponent } from './app.component';
-import { ContentLayoutComponent } from "./layouts/content/content-layout.component";
-import { FullLayoutComponent } from "./layouts/full/full-layout.component";
 import { AdminModule } from './admin/admin.module';
+import { AuthModule } from './auth/auth.module';
 
-
-
+/** Providers */
+import { AuthService } from './providers/auth.service';
+import { OrganizationService } from './providers/organization.service';
+import { BusinessService } from './providers/business.service';
+import { HttpModule } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { ToastrService } from './providers/toastr.service';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        FullLayoutComponent,
-        ContentLayoutComponent,
-    ],
-    imports: [
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        SharedModule,
+	declarations: [AppComponent],
+	imports: [
+		BrowserAnimationsModule,
+		AppRoutingModule,
+		SharedModule,
 		NgbModule.forRoot(),
-		AdminModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+		ToastModule.forRoot(),
+		AdminModule,
+		AuthModule,
+		HttpModule
+	],
+	providers: [ToastOptions, AuthService, OrganizationService, BusinessService, ToastrService],
+	bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -11,7 +11,8 @@ declare var $: any;
 })
 
 export class SidebarComponent implements OnInit {
-    public menuItems: any[];
+		public menuItems: any[];
+		public business = JSON.parse(localStorage.getItem('businessData'));
 
     constructor(private router: Router,
         private route: ActivatedRoute) {

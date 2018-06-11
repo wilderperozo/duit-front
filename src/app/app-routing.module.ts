@@ -1,18 +1,16 @@
 import { AdminComponent } from './admin/admin.component';
+import { AuthComponent } from './auth/auth.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
-
-import { FullLayoutComponent } from './layouts/full/full-layout.component';
-import { ContentLayoutComponent } from './layouts/content/content-layout.component';
 
 const appRoutes: Routes = [
 	{
 		path: '',
-		redirectTo: 'admin',
+		redirectTo: 'auth',
 		pathMatch: 'full'
 	},
 	{path: 'admin', component: AdminComponent, data: { title: 'Duit Admin' }},
-	// { path: '', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES },
+	{path: 'auth', component: AuthComponent, data: { title: 'Auth' }},
 ];
 @NgModule({
 	imports: [RouterModule.forRoot(appRoutes)],

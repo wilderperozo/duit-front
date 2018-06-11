@@ -1,0 +1,42 @@
+<!--Login Page Starts-->
+<section id="login" class="gradient-blue-indigo">
+	<div class="container-fluid">
+		<div class="row full-height-vh">
+			<div class="col-12 d-flex align-items-center justify-content-center">
+				<div class="card  bg-white text-center width-400">
+					<div class="card-img overlap">
+						<img alt="element 06" class="mb-1" [src]="businessData.logo" width="190">
+					</div>
+					<div class="card-body">
+						<div class="card-block">
+							<form novalidate="">
+								<div class="form-group">
+									<div class="col-md-12">
+										<input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="Email" [(ngModel)]="loginForm.email"
+										  required email>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<small *ngIf="errors.password.is" class="text-danger">
+										{{errors.password.msg}}
+									</small>
+									<div class="col-md-12">
+										<input type="password" class="form-control" name="inputPass" id="inputPass" placeholder="Password" [(ngModel)]="loginForm.password"
+										  required>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="col-md-12">
+										<button type="button" class="btn btn-indigo btn-block btn-raised" (click)="onSubmit()">Empezar</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
