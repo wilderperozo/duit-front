@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../providers/auth.service';
 import { User } from './../models/User.model';
+import { Business } from '../models/Business.model';
 
 class Error {
 	email = { is: false, msg: '' };
@@ -15,7 +16,7 @@ class Error {
 })
 export class AuthComponent implements OnInit {
 	loginForm = new User();
-	public businessData = [];
+	public businessData = new Business();
 	errors = new Error();
 	done = false;
 
@@ -24,6 +25,7 @@ export class AuthComponent implements OnInit {
 	// On submit button click
 	onSubmit() {
 		if (!this.done) {
+			this.loginForm.business = this.businessData._id;
 			this.authService.login(this.loginForm).subscribe(
 				resp => {
 					this.done = true;
@@ -40,6 +42,7 @@ export class AuthComponent implements OnInit {
 	}
 	getData() {
 		this.businessData = JSON.parse(localStorage.getItem('businessData'));
+		console.log('this.businessData ', this.businessData);
 	}
 
 	ngOnInit() {
