@@ -17,13 +17,18 @@ export class AuthComponent implements OnInit {
 	loginForm = new User();
 	public businessData = [];
 	errors = new Error();
+	done = false;
+
 	constructor(private router: Router, private route: ActivatedRoute, private authService: AuthService) {}
 
 	// On submit button click
 	onSubmit() {
 		this.authService.login(this.loginForm).subscribe(
 			resp => {
-				console.log('Respppp ', resp);
+				this.done = true;
+				setTimeout(() => {
+					this.router.navigate(['/admin'])
+				}, 1000);
 			},
 			error => {
 				this.errors.password = { is: true, msg: error.json().msg };
