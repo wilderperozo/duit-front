@@ -23,7 +23,7 @@ export class AuthComponent implements OnInit {
 
 	// On submit button click
 	onSubmit() {
-		if (this.done) {
+		if (!this.done) {
 			this.authService.login(this.loginForm).subscribe(
 				resp => {
 					this.done = true;
