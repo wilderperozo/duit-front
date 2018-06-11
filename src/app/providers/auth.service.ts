@@ -30,28 +30,33 @@ export class AuthService {
 	public get(url) {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
+		headers.append('Authorization', localStorage.getItem('token_auth'));
 		return this.http.get(url, { headers: headers });
 	}
 
 	public post(url, data) {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
+		headers.append('Authorization', localStorage.getItem('token_auth'));
 		return this.http.post(url, data, { headers: headers });
 	}
 
 	public put(url, data) {
 		const headers = new Headers();
 		headers.append('Content-Type', 'application/json');
+		headers.append('Authorization', localStorage.getItem('token_auth'));
 		return this.http.put(url, data, { headers: headers });
 	}
 
 	public patch(url, data) {
 		const headers = new Headers();
+		headers.append('Authorization', localStorage.getItem('token_auth'));
 		return this.http.patch(url, data, { headers: headers });
 	}
 
 	public delete(url) {
 		const headers = new Headers();
+		headers.append('Authorization', localStorage.getItem('token_auth'));
 		return this.http.delete(url, { headers: headers });
 	}
 

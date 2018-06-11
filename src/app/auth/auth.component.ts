@@ -27,6 +27,7 @@ export class AuthComponent implements OnInit {
 			this.authService.login(this.loginForm).subscribe(
 				resp => {
 					this.done = true;
+					localStorage.setItem('token_auth', resp.token.token);
 					setTimeout(() => {
 						this.router.navigate(['/admin']);
 					}, 1000);
