@@ -13,7 +13,9 @@ const appRoutes: Routes = [
 		path: 'admin',
 		component: AdminComponent,
 		data: { title: 'Duit Admin' },
-		children: [{ path: 'profiles', component: ProfilesComponent, data: { title: 'Profiles' } }]
+		children: [
+			{ path: 'profiles', component: ProfilesComponent, data: { title: 'Profiles' } }
+		]
 	}
 ];
 @NgModule({

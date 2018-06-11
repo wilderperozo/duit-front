@@ -14,6 +14,7 @@ import { OrganizationService } from './providers/organization.service';
 import { BusinessService } from './providers/business.service';
 import { HttpModule } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { ProfileService } from './providers/profile.service';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -26,7 +27,7 @@ import 'rxjs/add/operator/map';
 		AuthModule,
 		HttpModule
 	],
-	providers: [AuthService, OrganizationService, BusinessService],
+	providers: [AuthService, OrganizationService, BusinessService, ProfileService],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}
