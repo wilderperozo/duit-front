@@ -23,17 +23,19 @@ export class AuthComponent implements OnInit {
 
 	// On submit button click
 	onSubmit() {
-		this.authService.login(this.loginForm).subscribe(
-			resp => {
-				this.done = true;
-				setTimeout(() => {
-					this.router.navigate(['/admin'])
-				}, 1000);
-			},
-			error => {
-				this.errors.password = { is: true, msg: error.json().msg };
-			}
-		);
+		if (this.done) {
+			this.authService.login(this.loginForm).subscribe(
+				resp => {
+					this.done = true;
+					setTimeout(() => {
+						this.router.navigate(['/admin']);
+					}, 1000);
+				},
+				error => {
+					this.errors.password = { is: true, msg: error.json().msg };
+				}
+			);
+		}
 	}
 	getData() {
 		this.businessData = JSON.parse(localStorage.getItem('businessData'));
