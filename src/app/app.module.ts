@@ -15,6 +15,8 @@ import { BusinessService } from './providers/business.service';
 import { HttpModule } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { ProfileService } from './providers/profile.service';
+import { AuthValidGuard } from './providers/auth-valid.guard';
+import { LoginValidGuard } from './providers/login-valid.guard';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -27,7 +29,7 @@ import { ProfileService } from './providers/profile.service';
 		AuthModule,
 		HttpModule
 	],
-	providers: [AuthService, OrganizationService, BusinessService, ProfileService],
+	providers: [AuthService, OrganizationService, BusinessService, ProfileService, AuthValidGuard, LoginValidGuard],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

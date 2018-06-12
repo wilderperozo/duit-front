@@ -19,7 +19,7 @@ export class AuthService {
 
 	public getDataByUrl() {
 		const url = window.location.host;
-		return this.get(this.url + `/api/business/url/${url}`).map(response => {
+		return this.get(this.url + `/auth/url-business/${url}`).map(response => {
 			return response.json();
 		});
 	}
