@@ -62,7 +62,7 @@ export class AuthService {
 
 	private defineUrl() {
 		if (window.location.host === 'localhost:4200') {
-			this.url = 'http://localhost:3002';
+			this.url = 'https://pacific-island-58092.herokuapp.com';
 		} else {
 			this.url = 'http://prod';
 		}
